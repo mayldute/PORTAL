@@ -12,6 +12,8 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'weekly_notify': {
         'task': 'posts.tasks.weekly_notify',
-        'schedule': crontab(),
+        'schedule': crontab(hour=8, minute=0, day_of_week='monday'),
     },
 }
+
+app.conf.timezone = 'Europe/Moscow'
